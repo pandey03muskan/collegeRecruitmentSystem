@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h4 class="text-center mb-4 mt-3"><b>All job(s) list</b> <b class="text-light">applied by you</b></h4>
+<div style="height:3px; background:white;" class="mb-5"></div>
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+         <div class="row mb-5">
+{% if alldata %}
+             {% for x in alldata %}
+                    <div class="col-sm-5 bg-light" style="min-height:310px; box-shadow:5px 5px 10px gray; margin-left:70px; margin-bottom:30px;">
+                        <h6 class="ms-5 mt-4 fw-bold">{{x.2}}</h6>
+                        <span style="font-size:14px;" class="ms-5">{{x.8}}</span><br/>
+                        <span class="ms-3 mt-3"><i class="fa fa-envelope-square mt-3"></i>&nbsp;&nbsp;&nbsp;{{x.9}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <i class="fa fa-map-marker mt-3 mb-3"></i>&nbsp;&nbsp;{{x.7}}</span><br/>
+                        <span style="font-size:14px;" class="ms-3 mb-3 mt-4"><i class="fa fa-thumbs-up"></i>&nbsp;&nbsp;Total Vacancies: {{x.3}}</span><br/>
+                        <span style="font-size:14px;" class="ms-3 mb-3"><i class="fa fa-google-wallet">
+            </i>&nbsp;&nbsp;Salary: {{x.6}}</span><br/>
+                          <span style="font-size:14px;" class="ms-3"><i class="fa fa-file-text">&nbsp;&nbsp;{{x.4}}</i></span><br/>
+                        <p style="font-size:14px;" class="mt-2 ms-3">Required Skills: {{x.5}}</p>
+                    </div>
+             {% endfor %}
+             {% endif %}
+<div class="col-sm-6"></div>
+                </div>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+{% endblock %}

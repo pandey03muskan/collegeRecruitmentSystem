@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div style="font-size:28px; font-weight:bold; margin-top:30px;" class="text-center"><span class="text-light">Student</span> Login&nbsp;
+    <i class="fa fa-key fs-2 fa-spin"></i></div>
+<div class="row" style="min-height:330px; padding-top:25px; margin-bottom:110px;">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4" style="background:white; padding-top:35px; padding-left:40px;">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    User ID<br/>
+    <input type="text" name="uname" class="mt-2" size="43px"/><br/><br/>
+    Password<br/>
+    <input type="password" name="password" class="mt-2" size="43px"/><br/><br/><br/>
+    <input type="submit" class="btn btn-warning" value="Login"/>
+</form>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+{% endblock %}

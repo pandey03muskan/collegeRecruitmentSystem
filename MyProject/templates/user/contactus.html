@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+<style>
+.form-control
+{
+margin-bottom:8px;
+}
+.txta
+{
+min-height:70px;
+}
+</style>
+{% block content %}
+<div class="row contact mb-4">
+    <div class="h2 text-center mt-3"><b class="text-light">Contact</b>  <b>Us</b><i class="fa fa-phone text:dark ms-2"></i></div>
+ <div class="col-sm-2"></div>
+ <div class="col-sm-8" style="min-height:400px; background:white;">
+     <div class="row">
+         <div class="col-sm-5">
+             <div class="row">
+                 <div class="col-sm-1"></div>
+                 <div class="col-sm-10">
+                    <h5 class="mt-4 fw-bold mb-3"><u>Cont</u>act Info</h5>
+                     <p class="mt-2 text-dark" style="font-size:16px; font-weight:bold;"> <i class="fa fa-map-marker text-dark fs-5 ms-3 bg-warning p-1"
+                                                         style="border-radius:50%;"></i>&nbsp;&nbsp;<u> College</u> Address</p>
+                     <p class="ms-5" style="font-size:15px;">Mumtaj Nagar,<br/>
+                       Uttar Pradesh 22401</p>
+                     <p class="mt-2 text-dark" style="font-size:16px; font-weight:bold;"> <i class="fa fa-phone text-dark fs-5 ms-3 bg-warning p-1"
+                                                         style="border-radius:50%;"></i>&nbsp;&nbsp;<u> Call</u> Us</p>
+                     <a href="tel:9580281400" class="ms-5 text-dark" style="text-decoration:none; font-size:15px;"> +919580281400</a><br/>
+                        <a href="tel:9580281400" class="ms-5 text-dark" style="text-decoration:none; font-size:15px;"> +918081888434</a>
+                       <p class="mt-2 text-dark" style="font-size:16px; font-weight:bold;"> <i class="fa fa-envelope-square text-dark fs-5 ms-3 bg-warning p-1"
+                                                           style="border-radius:50%;"></i>&nbsp;&nbsp;<u> Mail</u> Us</p>
+                     <a href="mailto:2akrpandit@gmail.com" class="ms-5 text-dark" style="text-decoration:none; font-size:15px;"> pandey03muskan@gmail.com</a>
+                 </div>
+                 <div class="col-sm-2"></div>
+             </div>
+         </div>
+         <div class="col-sm-7">
+             <div class="col-sm-11 bg-light pt-3 ps-2 pe-2 mt-4 mb-4" style="border-radius:2%;">
+<form method="post">
+    {% csrf_token %}<!--cross site reforgery-->
+    {% if S %}
+    <div class="alert alert-success">
+        Thanks for enquiry....
+    </div>
+    {% endif %}
+    &nbsp;Name<input type="text" required name="name" class="form-control" placeholder="Enter your name......"/>
+    &nbsp;Mobile<input type="number" required name="mobile" class="form-control" placeholder="Enter your mobile No......"/>
+    &nbsp;Email<input type="email" required name="email" class="form-control" placeholder="Enter your name......"/>
+    &nbsp;Message
+    <textarea class="form-control txta"  name="msg" style="min-height:88px; resize:none;" placeholder="Enter your Message......"></textarea>
+    <input type="submit" value="Save" class="btn btn-warning mt-2 mb-3"/>
+</form>
+             </div>
+             <div class="col-sm-1"></div>
+         </div>
+     </div>
+ </div>
+ <div class="col-sm-1"></div>
+</div>
+{% endblock %}

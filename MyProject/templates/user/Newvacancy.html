@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row bg-light" style="min-height:650px;">
+    <h3 class="text-center mt-3 mb-2"><b>Explore New Vacant</b><b class="text-warning"> Place Here</b></h3>
+    <div style="height:1px; background:orange;"></div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <div class="row mt-4" style="min-height:620px;">
+            <div class="col-sm-7 pt-3 ms-4" style="margin-bottom:30px;">
+                {% if vdetail %}
+                {% for x in vdetail %}
+                <div class="row bg-white mb-2" style="min-height:310px; box-shadow:5px 5px 10px gray;">
+                    <div class="col-sm-12">
+                        <h6 class="ms-5 mt-4 fw-bold">{{x.designation}}</h6>
+                        <span style="font-size:14px;" class="ms-5">{{x.ccompany}}</span><br/>
+                        <span class="ms-3 mt-3"><i class="fa fa-envelope-square mt-3"></i>&nbsp;&nbsp;&nbsp;{{x.vdate}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <i class="fa fa-map-marker mt-3 mb-3"></i>&nbsp;&nbsp;{{x.clocation}}</span><br/>
+                        <span style="font-size:14px;" class="ms-3 mb-3 mt-4"><i class="fa fa-thumbs-up"></i>&nbsp;&nbsp;Total Vacancies: {{x.vacant}}</span><br/>
+                        <span style="font-size:14px;" class="ms-3 mb-3"><i class="fa fa-google-wallet">
+            </i>&nbsp;&nbsp;Salary: {{x.salary}}</span><br/>
+                          <span style="font-size:14px;" class="ms-3"><i class="fa fa-file-text">&nbsp;&nbsp;{{x.desc}}</i></span><br/>
+                        <p style="font-size:14px;" class="mt-2 ms-3">Required Skills: {{x.skill}}</p>
+                        <a href="/user/newvacancy?jid={{x.jid}}" class="btn btn-warning mb-2 mt-2 ms-3">Apply Now</a>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+            <div class="col-sm-4 ms-5">
+                <div class="row">
+                    <div class="col-sm-12" style="min-height:450px; background:white; box-shadow:5px 5px 10px gray;">
+                        <h6 style="margin-top:3px;" class="mt-3">Top Companies Hiring</h6>
+                        <hr/>
+                        {% if data %}
+                        {% for x in data %}
+                        <a href="/user/newvacancy?cid={{x.id}}">
+                        <img src="/{{x.cpic}}" class="img-thumbnail ms-3 mt-2" style="height:84px; width:145px;"/>
+                        </a>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+{% endblock %}

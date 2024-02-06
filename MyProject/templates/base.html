@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet"/>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet"/>
+    <style>
+        .header
+        {
+        min-height:55px;
+        border-top:6px solid orange;
+        }
+        .ic{
+        color:orange;
+        height:35px;
+        width:35px;
+        padding:3px;
+        }
+        .ic:hover
+        {
+        background:white;
+        color:black;
+        transition:all ease 1s;
+        transform:scale(1.05);
+        }
+        .menu
+        {
+    min-height:45px;
+        }
+        #menu ul li a
+        {
+        color:white;
+        }
+        #menu ul li a:hover
+        {
+        color:orange;
+        transition:all ease 1s;
+        }
+        .category
+        {
+        min-height:200px;
+        }
+        .newproduct
+        {
+        min-height:500px;
+        background:orange;
+        }
+        .services
+        {
+        min-height:500px;
+        }
+        .ufooter
+        {
+        min-height:300px;
+        background:#212529;
+        }
+        .bfooter
+        {
+        min-height:45px;
+        background:#212529;
+        margin-top:1px;
+        }
+        .offer
+        {
+        min-height:
+        }
+        #ft
+        {
+        text-decoration:none;
+        color:#0dcaf0;
+        }
+</style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row header bg-light">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6 fs-3 fw-bold">
+                    <center>
+                  <span class="ms-2"><i class="fa fa-graduation-cap
+                    fs-1"><b>College</b><b style="color:#F9A825;"></i> Recuritment System</b></span><br/>
+                    <span class="ms-5 fw-bold fs-5">Government Girls Polytechnic Ayodhya</span><br/>
+                <span class="fs-5">Campus Placement</span><br/>
+                        <span class="fs-5">2021-2022</span>
+                    </center>
+                </div></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+            <div class="row menu bg-dark">
+<!--start menu-->
+                    <div class="col-sm-12" style="padding-left:10%">
+                        <nav class="navbar navbar-expand-lg navbar-light" id="menu">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+          <span class="text-light mt-2 ms-3 fw-bold"> {% if request.session.stu %}
+                {{ request.session.stu}}
+              {% endif %}</span>
+        <li class="nav-item" style="margin-left:95px;">
+            <a class="nav-link active" aria-current="page" href="/user/home/">
+               <i class="fa fa-home text-warning"></i> Home</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link ms-2" href="/user/about/"><i class="fa fa-info text-warning"></i>  About Us</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link ms-2" href="/user/contactus/"><i class="fa fa-address-book text-warning"></i>  Contact Us</a>
+        </li>
+          <li>
+              <a class="nav-link ms-2" href="/user/newvacancy/"><i class="fa fa-bullhorn text-warning"></i>  New Vacancy</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link ms-2" href="/user/appliedjobs"><i class="fa fa-address-card text-warning"></i> Applied Jobs</a>
+        </li>
+          <li class="nav-item">
+              <a class="nav-link ms-2" href="/user/registration"><i class="fa fa-edit text-warning"></i>  Registration</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link ms-2" href="/user/myprofile/"><i class="fa fa-user-circle text-warning"></i> My Profile</a>
+        </li>
+           <li class="nav-item ms-2">
+          <a class="nav-link" href="/user/adminlogin/"><i class="fa fa-sign-in text-warning"></i>  Student Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+                    </div>
+                <!--end menu-->
+            </div>
+                <div class="row content bg-warning">
+                    <div class="col-sm-12">
+                    {% block content %}
+                    {% endblock %}
+                    </div>
+                </div>
+                <div class="row Services"></div>
+                                    <div class="row ufooter">
+                    <div class="col-sm-3">
+    <h5 style="color:white;" class="mb-4 mt-3 ms-3"><u class="mb-2">Stay Conn</u>ected</h5>
+                    <i class="fa fa-whatsapp ic fs-4 text-light ps-2 mb-3 ms-4 pt-1" style="background:green;
+                    border-radius:20px;"></i>
+                    <i class="fa fa-youtube ic ps-2  fs-4 mb-3 ms-4 pt-1 text-light" style="background:red; border-radius:20px;"></i><br/>
+                    <i class="fa fa-facebook ic ps-2 ms-1 fs-4 ms-4 pt-2 text-light" style="background:skyblue; border-radius:20px;"></i>
+                    <i class="fa fa-twitter ic ps-2 ms-1 fs-4 ms-4 text-info pt-1" style="background:white; border-radius:20px;"></i>
+                    </div>
+                    <div class="col-sm-3 pt-3">
+                        <h5 style="color:white;"><u>Quic</u> Links</h5>
+                        <a href="/user/newvacancy/" id="ft">New vacancy</a><br/>
+                        <a href="/user/about/" id="ft">About Us</a><br/>
+                        <a href="#" id="ft">Applied Jobs</a><br/>
+                        <a href="/user/myprofile/" id="ft">My Profile</a><br/>
+                        <a href="/user/registration/" id="ft">Registration</a><br/>
+                        <a href="/user/adminlogin/" id="ft">Admin Login</a><br/>
+                    </div>
+                    <div class="col-sm-3 p-3">
+                        <h5 style="color:white;"><u>LEGAL</u></h5>
+                        <a  href="/user/termcondition/" id="ft">Terms & Condition</a><br/>
+                        <a href="/user/privacypolicy/" id="ft">Privacy Policy</a><br/>
+                         <a href="#" id="ft">Copyright Information</a><br/>
+                        <h5 class="text-light mt-4"><u>HELP</u></h5>
+                        <a href="#" id="ft">Support</a><br/>
+                        <a href="/user/contactus/" id="ft">Contact</a>
+                    </div>
+                        <div class="col-sm-3 p-4">
+                            <h5 style="color:white;"><u>Contact Add</u>ress</h5>
+                            <p class="text-info"><i class="fa fa-home text-warning fs-4"></i> Mumtaj Nagar,<br/>
+                                                                                            Ayodhya,Uttar Pradesh 224001</p>
+
+                        <a href="tel:9580281400" id="ft"><i class="fa fa-phone text-info"></i>+91-9580281400</a><br/>
+                        <a href="tel:8081888434" id="ft"><i class="fa fa-phone text-info"></i>+91-8081888434</a><br/>
+                        <a href="tel:9559004348" id="ft"><i class="fa fa-phone text-info mb-3"></i>+91-9580281400</a>
+
+                    </div>
+                </div>
+                <div class="row bfooter text:light text:center py-2">
+                    <div class="col-sm-6 text-light text-center "><p><span class="text-warning">Campus</span> Recuritment || Developed By <span class="text-warning"> Muskan Pandey</p></div>
+                    <div class="col-sm-6 text-light">&copy; Campus Placement</div>
+                </div>
+</div>
+</body>
+</html>

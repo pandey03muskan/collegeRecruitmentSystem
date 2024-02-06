@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row" style="min-height:500px;">
+
+    <div class="col-sm-12 bg-light pt-4" style="min-height:500px;">
+        <center><span class="fs-6 fw-bold">Hello Dear Muskan Pandey Thanks for visiting</span><br/>
+            <span class="fs-4 fw-bold h3">Update <span class="text-warning">Your Profile</span>&nbsp;&nbsp;<i
+                    class="fa fa-user-circle text-warning fs-3"></i></span></center>
+{% if userdata %}
+{% for x in userdata %}
+        <form method="post" enctype="multipart/form-data">
+            <div class="row" style="min-height:350px; margin-top:70px;">
+                <div class="col-sm-2">
+                    <div style="height:130px; width:150px; margin-left:35px; margin-top:28px; background:white;">
+                        <img src="/{{x.picture}}" class="img-thumbnail"/></div>
+                </div>
+                <div class="col-sm-4 pt-1">
+                    <span class="ms-5">Name</span><br/>
+                    <input type="text" value="{{x.name}}" style="min-height:33px; max-width:280px;"
+                           class="ms-5 form-control"/>
+                    <br/><span class="ms-5">DOB</span><br/>
+                    <input type="text" value="{{x.dob}}"
+                           style="min-height:33px; max-width:280px; border:1px solid black; background:white;"
+                           class="ms-5 form-control"/>
+                    <br/><span class="ms-5">Gender</span><br/>
+                    <input type="text" value="{{x.gender}}"
+                           style="min-height:33px; max-width:280px; border:1px solid black; background:white;"
+                           class="ms-5 form-control"/>
+                    <div class="btn btn-danger mt-5 ms-5 form-control" style="max-width:280px;">Upadte Your Profile
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <span>Phone No</span><br/>
+                    <input type="text" value="{{x.number}}"
+                           style="min-height:33px; max-width:280px; border:1px solid black; background:white;"
+                           size="30px" class="form-control"/>
+                    <br/><span>Email</span><br/>
+                    <input type="text" value="{{x.email}}"
+                           style="min-height:33px; max-width:280px; border:1px solid black; background:white;"
+                           size="30px" class="form-control"/>
+                    <br/><span>Password</span><br/>
+                    <input type="text" value="{{x.passwd}}"
+                           style="min-height:33px; max-width:280px; border:1px solid black; background:white;"
+                           size="30px" class="form-control"/>
+                </div>
+                <div class="col-sm-3">
+                    <span>Course</span><br/>
+                    <input type="text" value="{{x.course}}"
+                           style="min-height:33px; max-width:280px; border:1px solid black; background:white;"
+                           class="form-control"/>
+                    <br/><span>Year</span><br/>
+                    <input type="text" value="{{x.year}}"
+                           style="min-height:33px; max-width:280px; border:1px solid black; background:white;"
+                           class="form-control"/>
+                    <br/><span>Profile Picture</span><br/>
+                    <input type="file" value="{{x.picture}}"
+                           style="border:1px solid black; background:white; max-width:280px;"
+                           class="mt-2 mb-3 form-control"/>
+                </div>
+            </div>
+        </form>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

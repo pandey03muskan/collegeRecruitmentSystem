@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h2 class="text-center mt-3"><b>Register</b> <b class="text-light">Here</b>  <i class="fa fa-edit"></i></h2>
+<hr style="border:1px solid white">
+<div class="row mb-3">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 bg-light">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10 mt-4">
+            <form method="post" enctype="multipart/form-data" autocomplete="off">
+                {% csrf_token %}
+                Name<input type="text" required name="name" class="form-control mb-2" placeholder="Enter your name......"/>
+                DOB<input type="date" required name="dob" class="form-control mb-2" placeholder="Enter your DOB......"/>
+                Email<input type="email" required name="email" class="form-control mb-2" placeholder="Enter your email......"/>
+                Password<input type="password" required name="passwd" class="form-control mb-2" placeholder="Enter your password...."/>
+                Number<input type="number" required name="number" class="form-control mb-2" placeholder="Enter your phone no......"/>
+                Gender :
+                <input type="radio" required name="gender" class="mb-2 fs-5" value="Male"/>Male
+                <input type="radio" required name="gender" class="mb-2 fs-5" value="Female"/>Female<br/>
+                Address<textarea class="form-control mb-2" name="address" placeholder="Enter your address..."></textarea>
+                Highest Qualification <select name="qualification">
+                <option>Graduation</option>
+                <option>B.tech</option>
+                <option>Diploma</option>
+                <option>12th</option>
+                <option>10th</option>
+            </select><br/>
+                Course <select name="course">
+                <option>Diploma</option>
+                <option>jhguyed</option>
+                <option>w38yugtl</option>
+                <option>qweglv</option>
+            </select><br/><br/>
+                Year <input type="text" placeholder="Enter passout year....." class="mb-3" name="year"/><br/>
+                Resume <input type="file" class="mb-3" accept=".pdf" class="mb-3" name="resume"/><br/>
+                Profile Picture <input type="file" class="mb-3" accept="image/*" class="mb-3" name="picture"/><br/>
+<input type="submit" value="Register Now" class="btn btn-success form-control mb-3"/><br/>
+<input type="reset" value="Reset" class="btn btn-danger form-control mb-3"/>
+            </form>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        </div>
+    <div class="col-sm-3"></div>
+</div>
+{% endblock %}
